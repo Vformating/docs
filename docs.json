@@ -1,23 +1,43 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Readyt",
-  "theme": "almond",
+  "name": "Flux",
+  "theme": "venus",
   "colors": {
-    "primary": "#fa7235",
-    "light": "#fcbc94"
+    "primary": "#F97316",
+    "light": "#FDBA74",
+    "dark": "#EA580C"
   },
   "logo": {
-    "light": "https://media.brand.dev/cf44413a-c489-4745-a1cd-7b94ede5ebd8.svg",
-    "dark": "https://media.brand.dev/cf44413a-c489-4745-a1cd-7b94ede5ebd8.svg"
+    "light": "/logo/flux-light.svg",
+    "dark": "/logo/flux-dark.svg"
   },
-  "favicon": "https://media.brand.dev/e2889ea4-99f8-471a-8683-b6a714e1df1e.png",
+  "favicon": "/logo/flux-dark.svg",
   "navbar": {
+    "links": [
+      {
+        "label": "Status",
+        "href": "https://status.flux.dev"
+      }
+    ],
     "primary": {
       "type": "button",
-      "label": "Start Now",
-      "href": "https://readyt.ai/pricing"
+      "label": "Dashboard",
+      "href": "https://app.flux.dev"
     }
   },
+  "anchors": [
+    {
+      "anchor": "GitHub",
+      "href": "https://github.com/flux-dev",
+      "icon": "github"
+    },
+    {
+      "anchor": "Community",
+      "href": "https://discord.gg/flux",
+      "icon": "discord"
+    }
+  ],
+  "openapi": "openapi.yaml",
   "navigation": {
     "tabs": [
       {
@@ -71,12 +91,41 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/overview"
+            ]
+          },
+          {
+            "group": "Events",
+            "pages": [
+              "api-reference/events/list-events",
+              "api-reference/events/create-event",
+              "api-reference/events/get-event"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/webhooks/list-webhooks",
+              "api-reference/webhooks/create-webhook",
+              "api-reference/webhooks/delete-webhook"
+            ]
+          }
+        ]
       }
     ]
   },
   "footer": {
     "socials": {
-      "website": "https://readyt.ai"
+      "github": "https://github.com/flux-dev",
+      "discord": "https://discord.gg/flux",
+      "website": "https://flux.dev"
     }
   }
 }

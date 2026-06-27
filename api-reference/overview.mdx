@@ -1,0 +1,95 @@
+---
+title: "API Reference"
+description: "Complete reference for the Flux REST API"
+---
+
+The Flux API is organized around REST. Our API has predictable resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes.
+
+## Base URL
+
+```
+https://api.flux.dev/v1
+```
+
+## Authentication
+
+The Flux API uses API keys to authenticate requests. Include your key in the `Authorization` header:
+
+```bash
+Authorization: Bearer sk_live_your_api_key
+```
+
+<Warning>
+  All API requests must be made over HTTPS. Requests over HTTP will fail.
+</Warning>
+
+Retrieve your API key from the [Dashboard](https://app.flux.dev) under **Settings → API Keys**. Treat your API key like a password — if a key is compromised, rotate it immediately from the dashboard.
+
+## Request Format
+
+All request bodies must be JSON-encoded. Set the `Content-Type: application/json` header on every `POST` request.
+
+```bash
+curl -X POST https://api.flux.dev/v1/events \
+  -H "Authorization: Bearer sk_live_your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "user.created", "payload": {"user_id": "usr_abc123"}}'
+```
+
+## Response Format
+
+All responses are JSON-encoded. Successful responses return the requested object or a `data` array for list endpoints. Error responses include an `error` object with a `code` and `message`.
+
+```json
+{
+  "error": {
+    "code": "unauthorized",
+    "message": "Invalid API key provided."
+  }
+}
+```
+
+## Errors
+
+Flux uses standard HTTP response codes to indicate the success or failure of a request.
+
+### HTTP Status Codes
+
+| Code | Meaning |
+|------|---------|
+| `200` | **OK** — Request succeeded. |
+| `201` | **Created** — Resource was created successfully. |
+| `400` | **Bad Request** — The request was invalid or missing required parameters. |
+| `401` | **Unauthorized** — No valid API key was provided. |
+| `404` | **Not Found** — The requested resource does not exist. |
+| `429` | **Too Many Requests** — You have exceeded the rate limit. |
+| `500` | **Server Error** — Something went wrong on our end. |
+
+## Pagination
+
+All list endpoints return paginated results. Pass the `cursor` from the previous response to fetch the next page.
+
+```json
+{
+  "data": [...],
+  "has_more": true,
+  "next_cursor": "cursor_01j8k9m2n3p4q5r6"
+}
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `limit` | integer | Number of items to return (default `20`, max `100`). |
+| `cursor` | string | Opaque cursor pointing to the next page. |
+
+## Rate Limiting
+
+Requests are rate limited per API key. Rate limit headers are included in every response.
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Total requests allowed per minute. |
+| `X-RateLimit-Remaining` | Requests remaining in the current window. |
+| `X-RateLimit-Reset` | Unix timestamp when the limit resets. |
+
+When you exceed the limit, the API returns a `429` response. Wait until `X-RateLimit-Reset` before retrying.

@@ -1,0 +1,307 @@
+openapi: 3.0.3
+info:
+  title: Flux API
+  description: Complete reference for the Flux REST API
+  version: "1.0.0"
+servers:
+  - url: https://api.flux.dev/v1
+security:
+  - bearerAuth: []
+paths:
+  /events:
+    get:
+      summary: List Events
+      description: Returns a paginated list of all events for your account.
+      operationId: listEvents
+      tags:
+        - Events
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of events to return (default 20, max 100).
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: cursor
+          in: query
+          description: Pagination cursor from the previous response.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A paginated list of events.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Event"
+                  has_more:
+                    type: boolean
+                  next_cursor:
+                    type: string
+              example:
+                data:
+                  - id: evt_01j8k9m2n3p4q5r6s7t8u9v0
+                    name: user.created
+                    payload:
+                      user_id: usr_abc123
+                    created_at: "2024-01-15T10:30:00Z"
+                has_more: true
+                next_cursor: cursor_01j8k9m2n3p4q5r6
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Create Event
+      description: Creates a new event and dispatches it to all matching webhooks.
+      operationId: createEvent
+      tags:
+        - Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - payload
+              properties:
+                name:
+                  type: string
+                  description: The event name (e.g. `user.created`, `order.completed`).
+                  example: user.created
+                payload:
+                  type: object
+                  description: Arbitrary JSON payload attached to the event.
+                  example:
+                    user_id: usr_abc123
+                    email: hello@example.com
+      responses:
+        "201":
+          description: The created event.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /events/{id}:
+    get:
+      summary: Get Event
+      description: Retrieves the details of an existing event.
+      operationId: getEvent
+      tags:
+        - Events
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique event ID.
+          schema:
+            type: string
+            example: evt_01j8k9m2n3p4q5r6s7t8u9v0
+      responses:
+        "200":
+          description: The event object.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /webhooks:
+    get:
+      summary: List Webhooks
+      description: Returns a list of all webhooks configured for your account.
+      operationId: listWebhooks
+      tags:
+        - Webhooks
+      responses:
+        "200":
+          description: A list of webhooks.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Webhook"
+              example:
+                data:
+                  - id: wh_01j8k9m2n3p4q5r6s7t8u9v0
+                    url: https://example.com/webhooks/flux
+                    events:
+                      - user.created
+                      - order.completed
+                    created_at: "2024-01-10T08:00:00Z"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Create Webhook
+      description: Creates a new webhook endpoint that will receive event notifications.
+      operationId: createWebhook
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+                - events
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: The HTTPS URL that will receive webhook payloads.
+                  example: https://example.com/webhooks/flux
+                events:
+                  type: array
+                  description: List of event names to subscribe to. Use `*` to subscribe to all events.
+                  items:
+                    type: string
+                  example:
+                    - user.created
+                    - order.completed
+      responses:
+        "201":
+          description: The created webhook.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Webhook"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /webhooks/{id}:
+    delete:
+      summary: Delete Webhook
+      description: Permanently deletes a webhook. This action cannot be undone.
+      operationId: deleteWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique webhook ID.
+          schema:
+            type: string
+            example: wh_01j8k9m2n3p4q5r6s7t8u9v0
+      responses:
+        "200":
+          description: Confirmation of deletion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  deleted:
+                    type: boolean
+              example:
+                id: wh_01j8k9m2n3p4q5r6s7t8u9v0
+                deleted: true
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          example: evt_01j8k9m2n3p4q5r6s7t8u9v0
+        name:
+          type: string
+          example: user.created
+        payload:
+          type: object
+          example:
+            user_id: usr_abc123
+        created_at:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          example: wh_01j8k9m2n3p4q5r6s7t8u9v0
+        url:
+          type: string
+          example: https://example.com/webhooks/flux
+        events:
+          type: array
+          items:
+            type: string
+          example:
+            - user.created
+            - order.completed
+        created_at:
+          type: string
+          format: date-time
+          example: "2024-01-10T08:00:00Z"
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+  responses:
+    BadRequest:
+      description: Bad request — invalid parameters.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: invalid_request
+              message: The `name` field is required.
+    Unauthorized:
+      description: Unauthorized — invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: unauthorized
+              message: Invalid API key provided.
+    NotFound:
+      description: Not found — the resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error:
+              code: not_found
+              message: No event found with that ID.
