@@ -38,10 +38,10 @@ Different data types in your dashboard update on different schedules based on ho
 | Reddit thread data   | Real-time via websockets            |
 | Sentiment analysis   | Recomputed daily                    |
 
-Reddit thread data — new replies, upvotes, comment counts — streams into your dashboard in real time via a persistent websocket connection. AI citation data requires Readyt to run probe queries across each model and parse responses, so it refreshes on a 4-hour cycle. Sentiment analysis runs a heavier LLM evaluation pass, so it updates once per day, typically in the early morning UTC window.
+Reddit thread data — new replies, upvotes, comment counts — streams into your dashboard in real time via a persistent websocket connection. AI citation data is collected by querying each supported model and attributing mentions and source citations to your brand or domain, so it refreshes on a 4-hour cycle. Sentiment analysis is a more compute-intensive process, so it updates once per day, typically in the early morning UTC window.
 
 <Info>
-  Citation data is extracted via Readyt's LLM evaluation pipeline — probe queries are run across every supported AI model, responses are parsed, and mentions and source citations are attributed to your brand or domain. This process runs continuously in the background; no configuration is required on your end.
+  Citation data is collected automatically across every supported AI model — ChatGPT, Claude, Perplexity, Gemini, Copilot, and Grok — and mentions and source citations are attributed to your brand or domain. This process runs continuously in the background; no configuration is required on your end.
 </Info>
 
 ## Thread-level attribution
