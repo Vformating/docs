@@ -1,0 +1,54 @@
+---
+title: "Readyt API: Build Custom Visibility Workflows"
+sidebarTitle: "API"
+description: "Use the Readyt API to pull brand visibility data, AI citations, Reddit leads, and competitor metrics into your own tools and dashboards."
+---
+
+The Readyt API gives you programmatic access to everything your Readyt account tracks — brand visibility scores, AI citation data, Reddit lead opportunities, and competitor benchmarks. Use it to embed Readyt data into your internal dashboards, feed your CRM with intent-scored leads, fire Slack alerts when opportunities surface, or build multi-step automations in n8n or Zapier. If your team works outside the Readyt dashboard, the API lets you bring the data to wherever you already work.
+
+## Authentication
+
+Readyt uses API key authentication. Every request must include your key in the `Authorization` header as a Bearer token. Retrieve your API key from your Readyt dashboard under **Settings → API**.
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.readyt.ai/v1/brand/visibility
+```
+
+Keep your API key private — treat it like a password. If a key is compromised, rotate it immediately from the **Settings → API** page in your dashboard.
+
+## What the API exposes
+
+The Readyt API surfaces the same data layers you see in the dashboard, all accessible as structured JSON responses:
+
+- **Brand visibility scores** — query your visibility rating broken down by AI model (ChatGPT, Claude, Perplexity, Gemini), region, and time range
+- **Source visibility and citation data** — see which Reddit threads and posts are generating AI citations for your brand, including citation frequency and recency
+- **Reddit lead opportunities** — retrieve a filterable list of high-intent threads scored by purchase intent, so you can prioritize outreach programmatically
+- **Competitor visibility comparisons** — pull side-by-side citation and visibility metrics for any competitor you track in Readyt
+- **Reply and post performance metrics** — access engagement data on your Readyt-assisted replies and posts, including upvote trends and click-through rates
+- **Backlink tracking data** — retrieve backlink activity associated with Reddit mentions that are influencing your AI model citations
+
+## Use cases
+
+<CardGroup cols={2}>
+  <Card title="Custom Dashboard" icon="chart-bar" href="#">
+    Pull visibility metrics directly into your internal BI tool, Notion workspace, or Looker dashboard so your whole team sees Reddit and AI citation trends without logging into Readyt.
+  </Card>
+  <Card title="CRM Integration" icon="database" href="#">
+    Route Reddit lead opportunities — complete with intent scores and thread context — into HubSpot, Salesforce, or Pipedrive so your sales team can act on them inside tools they already live in.
+  </Card>
+  <Card title="Slack Alerts" icon="bell" href="#">
+    Get an immediate Slack notification when a high-intent thread appears in your niche or when your citation count on a key AI model drops below a threshold you define.
+  </Card>
+  <Card title="n8n / Zapier Workflows" icon="bolt" href="#">
+    Build multi-step automations triggered by Readyt visibility events — for example, detect a new competitor citation spike and automatically queue a response post for review.
+  </Card>
+</CardGroup>
+
+## Rate limits
+
+Rate limits vary depending on your Readyt plan. Check your current usage and limits in the **Settings → API** section of your dashboard, or contact [support@readyt.ai](mailto:support@readyt.ai) if you need higher throughput for a specific integration.
+
+<Tip>
+  For AI-native workflows where you want to query Readyt data in natural language, use the [MCP integration](/integrations/mcp) instead of raw API calls — it lets Claude or Cursor ask questions about your brand visibility and leads directly in chat.
+</Tip>

@@ -1,0 +1,91 @@
+---
+title: "Configure Your Readyt Account and Brand Profile"
+sidebarTitle: "Account Setup"
+description: "Set up your brand profile, add competitors, configure keywords, and connect Reddit accounts to start tracking leads with Readyt."
+---
+
+Before Readyt can surface lead opportunities, it needs to understand your product, your buyers, and the conversations worth tracking. This guide walks through every setting in the account setup flow — brand profile, competitor tracking, keyword configuration, Reddit account connections, and team seat management. Most teams complete this in under ten minutes and start seeing matched threads almost immediately.
+
+## Brand profile
+
+Your brand profile is the foundation Readyt uses to match threads, draft replies, and track your presence across Reddit and AI assistants.
+
+**Product URL** is required and should point to your homepage or primary landing page. Readyt uses this URL for two purposes: it monitors for backlinks that Readyt generates on your behalf, and it anchors the AI's understanding of what your product does when drafting replies. Use your canonical domain — not a campaign landing page or subdomain.
+
+**Brand description** is a short paragraph (two to four sentences) describing what your product does, who it's built for, and what sets it apart from alternatives. Write it in plain English, the way you'd explain it to a thoughtful stranger — not in marketing copy. The AI Reply Engine uses this description to tone-match replies and ensure your product is positioned accurately in every thread.
+
+**Ideal Customer Profile (ICP)** tells Readyt what a qualified buyer looks like. Describe the company size, role, industry, and pain points that define your best customers. The more specific you are here, the more accurately the intent-scoring pipeline will rank threads by relevance. A well-defined ICP also reduces noise in your Opportunities feed so you spend time on threads that matter.
+
+## Competitors
+
+Add the names and, optionally, the URLs of your direct competitors. Readyt monitors Reddit in real time for threads where those competitors are mentioned — these are often the highest-intent opportunities available, because someone comparing tools or complaining about a competitor is actively in a buying decision.
+
+You can add competitors by name, domain, or both. When a subreddit post mentions a competitor name you've registered, it appears in your Opportunities feed alongside your keyword-matched threads, scored for intent.
+
+Competitor limits per plan:
+
+| Plan | Competitors |
+|------|-------------|
+| Starter | 4 |
+| Growth | 6 |
+| Pro | 10 |
+| Agency | Unlimited |
+
+Prioritize your most direct competitors first — the tools your prospects mention in the same breath as your product. You can update this list at any time from the Brand Profile settings page.
+
+## Keywords
+
+Keywords are the phrases Readyt monitors across Reddit to find threads where your buyers are asking questions or describing problems your product solves. Unlike competitor tracking, keywords let you capture demand that isn't yet attached to any specific tool.
+
+Add between 5 and 100 keywords depending on your plan, using buying-stage language rather than feature-level terms. The most effective keywords mirror the actual phrases people type when they're actively looking for a solution.
+
+**Good keyword examples:**
+- `"best project management tool for startups"`
+- `"alternatives to [competitor name]"`
+- `"[competitor name] too expensive"`
+- `"looking for a [solution type] that integrates with Slack"`
+- `"what do you use for [job to be done]"`
+
+**Keywords to avoid:** single generic words like `"productivity"` or `"SaaS"` — they match too broadly and flood your feed with low-intent threads.
+
+Keyword limits per plan:
+
+| Plan | Keywords |
+|------|----------|
+| Starter | 25 |
+| Growth | 50 |
+| Pro | 100 |
+| Agency | Unlimited |
+
+Review your keyword performance in the Analytics Dashboard after your first week. Keywords that surface high-intent threads consistently are worth expanding with related variations; keywords that produce mostly noise can be tightened or removed.
+
+## Reddit accounts
+
+Readyt posts replies and content on your behalf using warmed Reddit accounts — accounts that have already built karma history, posting patterns, and subreddit credibility before your first reply goes out. You do not need to supply your personal Reddit account or create new ones yourself.
+
+Account warming is handled entirely by ReadytWarm, Readyt's account warming system. It simulates human-like activity (upvotes, comments, browsing patterns) over time so that accounts look authentic to Reddit's trust systems when they post on your behalf. Each warmed account is assigned based on the subreddits most relevant to your brand to maximize credibility where it matters.
+
+<Warning>
+  Do not attempt to connect unwarmed personal Reddit accounts for posting. Accounts that post promotional content without an established activity history are at high risk of shadowbanning or suspension. Use the accounts Readyt provisions for you.
+</Warning>
+
+For full details on how ReadytWarm works, account health scoring, and what the upcoming Anti-Ban Engine V2.0 adds, see the [Account Warming](/features/account-warming) documentation.
+
+## Team seats
+
+Each Readyt plan includes a set number of seats. Every seat holder can access the full dashboard, review and approve replies, manage keywords, and view analytics. Seat limits per plan:
+
+| Plan | Seats |
+|------|-------|
+| Starter | 1 |
+| Growth | 2 |
+| Pro | 3 |
+| Agency | Unlimited |
+
+To invite a teammate, go to **Settings → Team** and enter their work email address. They'll receive an invitation link and can join your workspace immediately after creating their account. Invited members inherit the same brand profile and opportunities feed as the account owner — there is no separate per-seat configuration required.
+
+If you're on the Agency plan managing multiple brands, each brand workspace has its own seat pool. Teammates can be added to one or more brand workspaces independently.
+
+<Note>
+  **Data refresh intervals:** Reddit thread monitoring runs in real time via websocket connections — new matching threads appear in your feed within seconds of being posted. AI citation tracking (ChatGPT, Claude, Perplexity, Gemini, Copilot, Grok) refreshes every 4 hours. Sentiment scores for tracked threads are recomputed once daily, typically overnight.
+</Note>

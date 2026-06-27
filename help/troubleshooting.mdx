@@ -1,0 +1,84 @@
+---
+title: "Troubleshooting Common Readyt Issues"
+sidebarTitle: "Troubleshooting"
+description: "Fix the most common Readyt issues — removed replies, low intent scores, missing AI citations, and account health warnings."
+---
+
+Most issues with Readyt fall into a handful of common categories, and nearly all of them have a clear fix. This page walks through the most frequent problems our customers run into, what causes them, and exactly what to do. If you've worked through the steps here and still can't resolve something, email [hello@readyt.ai](mailto:hello@readyt.ai) and we'll take a look.
+
+<AccordionGroup>
+  <Accordion title="My replies are getting removed by Reddit moderators">
+    **What's causing this:**
+    Reply removals usually come down to one of three things — the reply sounds too promotional, the posting account has a low health score, or the subreddit you're targeting has strict self-promotion rules that AutoModerator enforces automatically.
+
+    **How to fix it:**
+    - Open your dashboard and check the **Account Health Score** for the account that posted the removed reply. If it's yellow or red, pause auto-posting and let ReadytWarm run before you resume.
+    - Review the subreddit's rules (found in the subreddit sidebar) — some communities ban any mention of products or links regardless of tone.
+    - Switch from auto-post to **manual approval mode** in your campaign settings so you can review reply tone before anything goes live. Look for phrases that sound like product pitches and soften them to match how a genuine community member would write.
+    - If the account is newly warmed, give it another 1–2 weeks of warmup in that specific subreddit's style before posting again.
+  </Accordion>
+
+  <Accordion title="My intent scores are low — most threads aren't relevant">
+    **What's causing this:**
+    Low intent scores typically mean your keywords are too broad, or your ICP (Ideal Customer Profile) description is too generic for Readyt to accurately filter for buying-intent conversations. Broad keywords surface informational threads where nobody is close to making a purchase decision.
+
+    **How to fix it:**
+    - Narrow your keywords to specific buying-intent phrases — for example, "best [tool] for [use case]" or "[competitor] alternative" rather than just your product category.
+    - Go to **Brand Settings → ICP Description** and make your profile more specific: include job title, company size, industry, and the core pain points your product solves. The more precise this is, the better Readyt's intent scoring becomes.
+    - Add at least 5–10 keywords spread across different intent types (comparison, problem-aware, solution-aware) to give Readyt enough surface area to find high-quality threads.
+  </Accordion>
+
+  <Accordion title="I'm not seeing AI citations yet">
+    **What's causing this:**
+    AI citations lag behind Reddit activity by 4–8 weeks. After your replies are posted, AI models need time to crawl the content, index it, and begin including it in their responses — this is a function of how those models update their retrieval systems, not something Readyt can accelerate directly.
+
+    **How to fix it:**
+    - Be patient — 6–8 weeks of consistent Reddit activity is the typical timeline before first citations appear. Running at low volume or inconsistently will push that timeline out further.
+    - Make sure your replies naturally include your brand name and URL where it fits — AI attribution models need clear signals to connect content to your brand.
+    - Go to **Dashboard → Visibility Settings** and confirm that **Source Visibility Tracking** is enabled for your domain. If it was recently added, it may take one full refresh cycle (up to 4 hours) to appear.
+    - Check the **Source Visibility** tab specifically, not just Brand Visibility — your domain may be getting cited even if your brand name isn't appearing yet.
+  </Accordion>
+
+  <Accordion title="My account health score is low or red">
+    **What's causing this:**
+    A red or low health score usually means the account was posting too frequently for its warmup stage, the account is newly created and hasn't built enough karma or history, or it received moderation signals (removed posts, warnings) in one or more subreddits.
+
+    **How to fix it:**
+    - Pause auto-posting immediately for any account showing a red health score. Continuing to post on a red account increases ban risk significantly.
+    - Let **ReadytWarm** run passively for 1–2 weeks. The score will recover as the account builds organic activity history.
+    - Reduce your configured daily reply volume for that account once you resume — stay well within the safe range shown in your dashboard.
+    - Check whether the account was flagged in a specific subreddit by reviewing the **Account Activity Log** in your dashboard. If so, exclude that subreddit from that account's campaign until the score recovers.
+  </Accordion>
+
+  <Accordion title="A team member can't access the dashboard">
+    **What's causing this:**
+    The most common cause is that your plan's seat limit has been reached. Readyt plans include a fixed number of user seats, and invitations that exceed that limit won't be able to activate.
+
+    **How to fix it:**
+    - Go to **Settings → Team** and check how many seats are currently occupied. Seat limits by plan: Starter = 1 seat, Growth = 2 seats, Pro = 3 seats.
+    - If you're at your seat limit, either upgrade your plan in **Settings → Billing** to unlock more seats, or remove an inactive team member to free up a seat for the new user.
+    - If your team member received an invitation email but still can't log in, ask them to check their spam folder and confirm they're using the same email address the invite was sent to.
+    - Agency plan seats are customized — contact [hello@readyt.ai](mailto:hello@readyt.ai) if you need to adjust your team size.
+  </Accordion>
+
+  <Accordion title="My keywords aren't surfacing any threads">
+    **What's causing this:**
+    Keywords that are too narrow or highly technical may simply not appear frequently enough on Reddit to surface threads consistently. Some niche terms have low Reddit volume — meaning the conversations you want exist, but not under those exact phrases.
+
+    **How to fix it:**
+    - Broaden slightly by adding synonym phrases and common abbreviations for your keywords — for example, if "revenue operations platform" returns nothing, also try "RevOps tool" or "sales ops software."
+    - Make sure you've added at least 5–10 keywords across different intent types. A single keyword or two won't give Readyt enough coverage to find threads regularly.
+    - Add competitor brand names as keywords — threads where people ask about competitors or compare tools are often the highest-intent conversations, and they're a reliable source of surfaced threads even when your own category keywords run dry.
+    - Check **Keyword Analytics** in your dashboard to see which existing keywords are surfacing the most threads, and use those as a model for adding similar phrases.
+  </Accordion>
+</AccordionGroup>
+
+## Contact support
+
+If you've worked through the relevant steps above and the issue persists, our team is here to help.
+
+**Email:** [hello@readyt.ai](mailto:hello@readyt.ai)
+
+<Note>
+  Pro plan users receive priority support with a 12-hour response time. Agency plan clients have a dedicated account manager available for direct support and proactive campaign reviews.
+</Note>

@@ -1,0 +1,57 @@
+---
+title: "Frequently Asked Questions About Readyt"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about Readyt — setup, data refresh rates, AI citation tracking, billing, and account management."
+---
+
+This page answers the questions our customers ask most often — from getting started to understanding how AI citation tracking works under the hood. If you don't find what you're looking for here, reach out to us directly at [hello@readyt.ai](mailto:hello@readyt.ai) and we'll get back to you quickly.
+
+<AccordionGroup>
+  <Accordion title="How do I get started with Readyt?">
+    Sign up for an account, connect your brand and any competitors you want to track, and Readyt begins monitoring Reddit within 5 minutes. There's no setup call required — the onboarding flow walks you through brand configuration step by step. Once your brand is connected, Readyt surfaces relevant threads, drafts replies, and starts tracking your AI citation visibility automatically.
+  </Accordion>
+
+  <Accordion title="How long until I see results?">
+    You'll see relevant Reddit threads and drafted replies within minutes of completing setup. Meaningful engagement metrics — such as reply approval rates and thread intent scores — start building within the first week of active use. AI citation visibility typically takes 6–8 weeks of consistent Reddit activity, since AI models need time to crawl, index, and attribute your content as a source.
+  </Accordion>
+
+  <Accordion title="Can I segment visibility by AI model, region, or audience?">
+    Yes. Readyt lets you filter brand and source visibility data by AI model (ChatGPT, Claude, Perplexity, Gemini, Copilot, and Grok), geographic region, or audience segment. This helps you understand which models are citing your brand most often and where your content resonates. Custom audience segments are available on the Pro plan.
+  </Accordion>
+
+  <Accordion title="How often is the data refreshed?">
+    AI citation data refreshes every 4 hours, so your visibility scores stay current throughout the day. Reddit thread data is delivered in real time via websockets — new threads matching your keywords appear in your dashboard as soon as they're posted. Sentiment scores are recomputed daily to reflect the most recent context around your brand mentions.
+  </Accordion>
+
+  <Accordion title="What's the difference between brand visibility and source visibility?">
+    Brand visibility measures how often your brand name appears in AI-generated responses across models like ChatGPT, Claude, and Perplexity. Source visibility measures how often your domain or specific content is cited as a source in those same AI responses. Both metrics are tracked separately so you can understand whether you're winning on brand recognition, content authority, or both.
+  </Accordion>
+
+  <Accordion title="How do source citations work behind the scenes?">
+    Readyt runs probe queries across every supported AI model and processes the responses through an LLM evaluation pipeline. Each response is parsed to extract brand mentions and domain citations, which are then attributed to your brand or competitors in your dashboard. This process runs continuously so your citation data stays fresh as AI models update their training and retrieval behavior.
+  </Accordion>
+
+  <Accordion title="How does the MCP integration work?">
+    Install the Readyt MCP server in Claude or Cursor to query your brand visibility, citation data, and competitor standings directly from your AI coding or writing environment. Once installed, you can ask natural-language questions — like "how is my brand performing on Perplexity this week?" — and get live Readyt data in your response. Full setup instructions are available in the MCP integration guide.
+  </Accordion>
+
+  <Accordion title="Can I use my own Reddit account?">
+    Yes, you can connect your existing Reddit account to Readyt. However, we recommend using accounts managed through Readyt's account pool, which go through the ReadytWarm process to build karma and posting history before any brand-related activity begins. Using a brand-new or low-karma personal account for marketing activity carries higher ban risk — your Account Health Score in the dashboard will reflect this.
+  </Accordion>
+
+  <Accordion title="What happens if a reply gets removed by Reddit?">
+    Reply removals are usually triggered by account health issues, overly promotional language, or subreddit-specific rules. Switch from auto-post to manual approval mode so you can review tone before anything goes live, and check your Account Health Score in the dashboard. Letting ReadytWarm run longer before posting in a new subreddit significantly reduces removal rates. See the [Troubleshooting guide](/help/troubleshooting) for a full breakdown of causes and fixes.
+  </Accordion>
+
+  <Accordion title="How do I add a team member?">
+    Go to **Settings → Team** in your dashboard and invite your team member by email. Each plan includes a set number of seats: Starter includes 1 seat, Growth includes 2, and Pro includes 3. If you've reached your seat limit, you can upgrade your plan or remove an inactive team member to free up a seat. Agency plans support custom team sizes — contact us to discuss your needs.
+  </Accordion>
+
+  <Accordion title="Can I change my plan?">
+    Yes, you can upgrade or downgrade your plan at any time from **Settings → Billing**. Upgrades take effect immediately and are prorated for the remainder of your billing cycle. Downgrades take effect at the start of your next billing period. If you're interested in the Agency plan, [book a call](https://app.iclosed.io/e/speechlyio/demo-readyt-ai) to discuss custom pricing and account volumes.
+  </Accordion>
+
+  <Accordion title="What's the difference between monthly and yearly billing?">
+    Monthly billing charges you each month at the standard rate — Starter at $23/mo, Growth at $47/mo, and Pro at $79/mo. Yearly billing is paid upfront for 12 months and includes a discount compared to paying month to month. Switching to yearly billing is available from **Settings → Billing** at any time, and the change takes effect at your next renewal date.
+  </Accordion>
+</AccordionGroup>

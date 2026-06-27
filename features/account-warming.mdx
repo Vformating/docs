@@ -1,0 +1,64 @@
+---
+title: "ReadytWarm: Account Warming to Prevent Reddit Bans"
+sidebarTitle: "Account Warming"
+description: "ReadytWarm automatically warms Reddit accounts with human-like activity, building karma and post history so your replies stay live."
+---
+
+Account warming is the process of building a Reddit account's karma, post history, and behavioral credibility before using it for brand activity. Reddit's anti-spam systems are aggressive — an account that jumps straight into promotional replies without any history gets flagged, shadowbanned, or outright suspended within days. ReadytWarm handles this automatically, running human-like activity patterns across your accounts in the background so that by the time Readyt posts a reply or publishes a post on your behalf, the account behind it looks and behaves like a real, established Redditor.
+
+<Warning>
+  ReadytWarm and full account warming features are rolling out as part of V2.0. Current plans include the Account Health Score dashboard and the ReadytWarm warmup system. The full Anti-Ban Engine and Agency-tier Anti-Ban Premium accounts ship with V2.0.
+</Warning>
+
+## Why accounts get banned
+
+Reddit's trust and safety systems evaluate accounts along several dimensions simultaneously. A brand-new account that starts posting in niche subreddits immediately is one of the clearest signals of automated or inauthentic behavior. Beyond age, Reddit tracks:
+
+- **Karma balance** — accounts with very low karma, or karma concentrated entirely in one subreddit, are treated as suspicious
+- **Post and comment history** — accounts with no organic activity outside the subreddits they're targeting look like purpose-built marketing vehicles
+- **Behavioral patterns** — posting at machine-regular intervals, always including a link, always replying within seconds of thread creation, and never upvoting or engaging with unrelated content all trigger Reddit's classifiers
+- **IP and device fingerprinting** — multiple accounts operating from the same IP or device environment are grouped together; if one is flagged, the others are reviewed
+
+Aged accounts — ones with months or years of browsing history, organic karma, and participation across a variety of subreddits — are treated fundamentally differently by Reddit's systems. They have earned implicit trust, and that trust directly affects whether their posts stay up and how Reddit's algorithm surfaces their content.
+
+## How ReadytWarm works
+
+<Steps>
+  <Step title="Readyt provisions aged Reddit accounts">
+    When you activate ReadytWarm, Readyt provisions Reddit accounts that already have existing age and baseline history. You don't start from a zero-day account — the foundation is already in place before warming begins.
+  </Step>
+  <Step title="ReadytWarm performs human-like activity">
+    The warming system runs continuous background activity across relevant subreddits: upvoting posts, leaving generic helpful comments on non-branded threads, simulating natural browsing patterns, and participating in communities adjacent to your target subreddits. Activity timing is randomized to avoid machine-regular patterns.
+  </Step>
+  <Step title="Karma and account health build over time">
+    Over days and weeks, the accounts accumulate karma and develop the kind of varied post history that Reddit's systems associate with genuine users. The warming process doesn't rush — it mirrors the timeline of a real person building a Reddit presence.
+  </Step>
+  <Step title="Account Health Score is tracked in your dashboard">
+    Throughout the warming period, your Readyt dashboard displays an Account Health Score for each account. The score reflects karma level, account age, activity diversity, and any flags or warnings detected by Readyt's monitoring. You can track progress in real time without needing to log into Reddit directly.
+  </Step>
+  <Step title="Accounts graduate to brand posting">
+    Once an account's Health Score reaches the graduation threshold, Readyt marks it as ready for brand activity. The Reply Engine and Post Generator begin routing posts through that account. ReadytWarm continues light maintenance activity in the background to keep the account's profile healthy over time.
+  </Step>
+</Steps>
+
+## Account Health Score
+
+The Account Health Score is a 0–100 index visible in **Settings → Account Warming** for each account Readyt manages. It synthesizes the following signals into a single number:
+
+- **Karma level** — total post and comment karma, weighted by recency
+- **Activity diversity** — breadth of subreddits the account has participated in
+- **Account age** — time since account creation, factoring in verified activity periods
+- **Flag history** — whether Reddit has issued any warnings, temporary restrictions, or shadowban signals for the account
+- **Behavioral consistency** — how closely the account's activity pattern resembles organic human behavior over the past 30 days
+
+A score above 75 is considered safe for regular brand posting. Scores between 50 and 75 are suitable for low-frequency replies in moderate-risk subreddits. Scores below 50 indicate the account is still warming and should not be used for brand activity yet.
+
+The score updates every 24 hours. If a score drops — for example, because a post was removed by a moderator or Reddit issued a quiet warning — Readyt surfaces an alert in your dashboard and temporarily pauses posting from that account until the situation resolves.
+
+## Anti-Ban Engine (V2.0)
+
+Readyt V2.0 introduces the full Anti-Ban Engine: a deeper layer of protection that goes beyond account warming to actively monitor Reddit's trust signals, rotate behavioral parameters, and respond to emerging detection patterns in near real time.
+
+Agency plan subscribers receive **Anti-Ban Premium accounts** — a managed pool of high-authority aged accounts with extended history, elevated karma, and custom warming profiles tuned to your specific target subreddits. These accounts carry the highest Health Scores available on the platform and are prioritized for high-stakes posting environments.
+
+For full technical details on the Anti-Ban Engine and how to configure Anti-Ban Premium for Agency accounts, see the [Anti-Ban Engine documentation](/help/anti-ban).

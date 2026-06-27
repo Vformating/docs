@@ -1,0 +1,82 @@
+---
+title: "Connect Readyt to Claude and Cursor via MCP"
+sidebarTitle: "MCP"
+description: "Install the Readyt MCP server to query brand visibility, AI citations, and lead data directly inside Claude, Cursor, or any MCP-compatible tool."
+---
+
+The Model Context Protocol (MCP) is an open standard that lets AI tools consume external data as live context — no copy-pasting, no manual exports. When you connect the Readyt MCP server to Claude, Cursor, or any compatible tool, your brand visibility scores, AI citation data, competitor comparisons, and Reddit lead opportunities become instantly queryable in natural language, right inside the tools you already use.
+
+## What you can do with the MCP integration
+
+- Query your current brand visibility score from inside Claude or Cursor without leaving your workflow
+- Ask which AI models are citing your brand and trace citations back to the exact Reddit threads that drove them
+- Pull side-by-side competitor citation comparisons on demand
+- Surface high-intent Reddit lead opportunities directly in your AI chat so you can act on them immediately
+- Build n8n automations that pull live Readyt data as a workflow trigger
+
+## Installing in Claude
+
+<Steps>
+  <Step title="Open Claude settings">
+    Navigate to **Settings** in Claude, then select **Integrations** (or the **MCP Servers** section, depending on your Claude version).
+  </Step>
+  <Step title="Add a new MCP server">
+    Click **Add MCP server** to open the server configuration panel.
+  </Step>
+  <Step title="Enter the Readyt MCP server URL">
+    Paste the Readyt MCP endpoint URL. Find this in your Readyt dashboard under **Settings → Integrations → MCP**.
+  </Step>
+  <Step title="Authenticate with your API key">
+    When prompted, paste your Readyt API key. You can generate or copy this key from **Settings → API** in your Readyt dashboard.
+  </Step>
+  <Step title="Start querying">
+    Your Readyt data is now available as context in every Claude conversation. Ask about brand visibility, citations, leads, or competitors in plain English.
+  </Step>
+</Steps>
+
+## Installing in Cursor
+
+<Steps>
+  <Step title="Open Cursor MCP settings">
+    In Cursor, go to **Settings** and select the **MCP** section from the left-hand menu.
+  </Step>
+  <Step title="Add the Readyt MCP server">
+    Click **Add server** and enter the Readyt MCP endpoint URL from your Readyt dashboard under **Settings → Integrations → MCP**.
+  </Step>
+  <Step title="Enter your API key">
+    Provide your Readyt API key to authenticate the connection. Cursor stores this securely for all future sessions.
+  </Step>
+  <Step title="Query with @readyt">
+    Type `@readyt` in Cursor chat to scope your question to Readyt data. Ask about visibility scores, citation trends, or unread lead opportunities without switching tools.
+  </Step>
+</Steps>
+
+## Using with n8n
+
+Readyt's MCP server works as a data source inside n8n HTTP-based workflows. Use the MCP endpoint as an HTTP Request node target, authenticate with your API key, and chain the response into downstream actions. A few common patterns:
+
+- **Pull brand visibility metrics on a schedule** — fetch daily or weekly visibility scores and write them to a Google Sheet or Notion database for trend tracking
+- **Trigger alerts on new lead opportunities** — set up a polling workflow that fires a Slack message or email whenever a high-intent Reddit thread surfaces in your Readyt feed
+- **Route Reddit leads to your CRM** — parse intent scores from the Readyt response and create or update contact records in HubSpot, Salesforce, or Pipedrive automatically
+
+For purely AI-native workflows where you want natural language queries rather than structured API calls, pair n8n with the Claude MCP integration so your automations can ask Readyt questions in plain English.
+
+## Example queries
+
+After connecting the Readyt MCP server, you can ask Claude or Cursor questions like these:
+
+```text
+What's my current brand visibility score on Perplexity?
+
+Which subreddits are driving the most ChatGPT citations this week?
+
+Show me the top 5 high-intent Reddit threads I haven't replied to yet.
+
+Compare my citation count vs [Competitor] on Claude.
+```
+
+These queries return live data from your Readyt account — no dashboard required.
+
+<Note>
+  Your MCP server endpoint and API key are both available in your Readyt dashboard under **Settings → Integrations → MCP**.
+</Note>

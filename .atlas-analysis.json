@@ -1,0 +1,86 @@
+{
+  "projectType": "saas",
+  "projectName": "Readyt",
+  "projectDescription": "Readyt is an AI-powered Reddit marketing platform that helps SaaS teams generate leads, earn SEO backlinks, and build AI search (GEO) visibility through automated replies, posts, and analytics.",
+  "theme": "almond",
+  "primaryColor": "#fa7235",
+  "lightColor": "#fcbc94",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/ai-reply-engine",
+              "features/post-generator",
+              "features/analytics",
+              "features/account-warming"
+            ]
+          },
+          {
+            "group": "GEO & SEO",
+            "pages": [
+              "geo-seo/overview",
+              "geo-seo/ai-citations",
+              "geo-seo/backlinks"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/mcp",
+              "integrations/api"
+            ]
+          },
+          {
+            "group": "Plans & Billing",
+            "pages": [
+              "billing/plans",
+              "billing/agency"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/anti-ban",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "AI Reply Engine — scans Reddit in real time, scores threads by buyer intent, drafts human-sounding replies for one-click approval",
+    "Post Generator — creates native Reddit posts in your brand voice, queued at peak hours across subreddits",
+    "Analytics Dashboard — tracks AI citations (ChatGPT, Claude, Perplexity, Gemini), backlinks, and Reddit mentions in one place",
+    "Account Warming (ReadytWarm) — auto-warms aged Reddit accounts to build karma and prevent bans",
+    "Anti-Ban Engine — warmed accounts, health scoring, and human-like activity patterns",
+    "MCP Integration — connect Readyt data to Claude, Cursor, n8n, and other AI tools",
+    "Intent Scoring — LLM pipeline ranks every Reddit thread by buyer intent so you engage only high-value threads",
+    "Auto DMs — automated direct messages to qualified Reddit leads",
+    "3-in-1 Channel — one workflow drives Reddit leads, Google backlinks, and AI search visibility simultaneously"
+  ],
+  "publicApiSurface": [
+    "MCP server — query brand visibility, citations, and competitor data from Claude or Cursor",
+    "API — build custom workflows with AI visibility data",
+    "AI Reply Engine — one-click reply approval flow",
+    "Post Generator — schedule posts across subreddits",
+    "Analytics — filter by AI model, region, and audience segment",
+    "Competitor tracking — track up to 4–unlimited competitor brands",
+    "Keyword tracking — monitor 25–unlimited custom keywords",
+    "Auto DM — configure daily outreach volume per plan"
+  ]
+}

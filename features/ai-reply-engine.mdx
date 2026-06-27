@@ -1,0 +1,87 @@
+---
+title: "AI Reply Engine: Approve Reddit Replies in One Click"
+sidebarTitle: "Reply Engine"
+description: "Readyt's AI Reply Engine scans Reddit in real time, scores threads by buyer intent, and drafts human-sounding replies for one-click approval."
+---
+
+Readyt's AI Reply Engine monitors Reddit around the clock and surfaces the threads most likely to convert — so you spend your time approving replies, not hunting for opportunities. Every reply Readyt drafts is written to match the subreddit's tone and your brand voice, making it indistinguishable from a genuine community response. Whether you review each reply manually or let auto-post handle the queue, the engine keeps your brand in the right conversations without the manual grind.
+
+## How it works
+
+The Reply Engine runs a continuous pipeline from signal detection all the way through to a live Reddit post.
+
+**Scan.** Readyt connects to Reddit's data stream via websockets, pulling new threads and comments in real time. It monitors your configured keywords, competitor brand names, and subreddits that match your ICP — so nothing relevant slips through during off-hours.
+
+**Score.** Each thread the engine finds is passed through Readyt's intent scoring pipeline (covered in detail below). The score determines whether a thread surfaces in your dashboard at all. Low-intent noise stays filtered out.
+
+**Draft.** For every thread that clears the intent threshold, the engine generates a reply. It reasons against the full thread context, your brand voice settings, and the specific subreddit's community norms to produce a reply that reads like it came from a real, knowledgeable community member.
+
+**Approve.** You review the draft in your dashboard alongside the intent score and thread context. Edit the copy if you want to, or approve it as-is with one click.
+
+**Post.** Readyt posts the reply from your warmed Reddit account. The thread, reply, and any downstream attribution data are immediately tracked in Analytics.
+
+## Intent scoring \{#intent-scoring\}
+
+Not every Reddit mention is worth your time. Someone venting about a bad experience is different from someone actively asking for a tool recommendation. The intent scoring pipeline separates the two.
+
+Every thread the engine surfaces is evaluated by an LLM pipeline that weighs the following signals:
+
+- **Keyword match quality** — how closely the thread's language aligns with your target use case, not just a surface-level keyword hit
+- **Competitor mentions** — threads where a competitor is named carry elevated intent, because the user is already shopping in your category
+- **ICP fit** — the subreddit, poster history, and thread context are assessed against your defined ideal customer profile
+- **Buying language** — phrases like "looking for," "switched from," "anyone recommend," and "worth it?" indicate active evaluation
+
+The resulting score (0–100) appears next to every thread in your dashboard. Use it to prioritize: focus your manual review time on threads scoring above 70, and set auto-post thresholds for high-confidence matches.
+
+## Drafting a reply
+
+Readyt generates each reply against three inputs: the full thread content (including prior comments), your brand voice configuration, and the subreddit's community tone. The engine never produces a reply that starts with "As an AI" or reads like a press release — it reasons about what a helpful, credible community member would actually say.
+
+You can steer tone on a per-reply or account-wide basis using three presets:
+
+- **Helpful** — educational, empathetic, focused on solving the poster's problem
+- **Direct** — confident, concise, no-fluff recommendation style
+- **Story** — first-person framing, light narrative, works well in subreddits that favor personal experience
+
+The approval workflow looks like this:
+
+<Steps>
+  <Step title="Thread surfaces in dashboard">
+    Readyt detects a relevant thread and adds it to your reply queue, tagged with its intent score, subreddit, and matched keyword or competitor.
+  </Step>
+  <Step title="Review intent score and thread context">
+    Open the thread card to read the original post and top comments. Check the intent score to gauge how actively the poster is evaluating solutions.
+  </Step>
+  <Step title="Read the AI draft">
+    Review the reply Readyt generated. It appears alongside the thread so you can assess fit and tone in context.
+  </Step>
+  <Step title="Optionally edit the draft">
+    Adjust any phrasing, add a specific product detail, or swap the tone preset if the draft doesn't quite land. Edits are applied before posting.
+  </Step>
+  <Step title="Hit Approve">
+    Click **Approve** and Readyt posts the reply from your warmed account immediately. The thread moves to your Analytics view.
+  </Step>
+</Steps>
+
+## Auto-post mode
+
+Auto-post mode removes the approval step entirely. When enabled, Readyt posts replies automatically for any thread that meets your configured intent score threshold — no dashboard visit required.
+
+This is the fastest way to operate at scale, but it works best when two conditions are met: your warmed account has a healthy karma score, and you've already reviewed enough manual replies to be confident in Readyt's voice calibration for your brand.
+
+Turn on auto-post from **Settings → Reply Engine → Posting mode**. You can set separate thresholds for different subreddits or keyword groups, so high-confidence matches post automatically while borderline threads still route to your queue for review.
+
+<Tip>
+  Most users spend 15 minutes per day approving replies. Start in manual approval mode to tune your brand voice before switching to auto-post — a few days of manual review gives the engine enough feedback to calibrate confidently.
+</Tip>
+
+## Reply limits by plan
+
+| Plan    | Replies per month |
+| ------- | ----------------- |
+| Starter | 150               |
+| Growth  | 300               |
+| Pro     | 1,000             |
+| Agency  | Unlimited         |
+
+Replies reset on your billing cycle date. Unused replies do not roll over. If you reach your monthly limit before the reset, upgrade your plan from **Settings → Billing** or contact support to discuss an Agency arrangement.
