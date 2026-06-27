@@ -1,0 +1,14 @@
+{
+  "theme": "dark",
+  "colors": {
+    "primary": "#6366F1"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Dashboard",
+        "href": "https://app.tonsite.com"
+      }
+    ]
+  }
+}
